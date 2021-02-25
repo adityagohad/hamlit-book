@@ -1,0 +1,22 @@
+{
+  "name": "hamlit-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityagohad/hamlit-book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityagohad/hamlit-book/issues"
+  },
+  "homepage": "https://github.com/adityagohad/hamlit-book#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

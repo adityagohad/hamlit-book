@@ -1,0 +1,21 @@
+.mainContainer {
+    padding-top: 45px;
+}
+
+.progressbarContainer {
+    width: 50%;
+}
+
+.displayEx {
+    font-size: 24px;
+    padding-bottom: 4px;
+}
+
+.mainRow {
+    width: 75%;
+    padding-top: 45px;
+}
+
+.bookDescription {
+    font-size: 14px;
+}

@@ -2,8 +2,13 @@
     padding-top: 45px;
 }
 
+.heading {
+    text-align: center;
+}
+
 .progressbarContainer {
     width: 50%;
+    margin-top: 25px;
 }
 
 .displayEx {
@@ -17,5 +22,19 @@
 }
 
 .bookDescription {
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.info {
+    width: 48px;
+    height: 24px;
+}
+
+.modelSections {
+    font-weight: bold;
+}
+
+.close {
+    padding-left: 40px;
+    padding-top: 24px;
 }

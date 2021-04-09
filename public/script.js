@@ -13,13 +13,6 @@ window.onload = function () {
     document.querySelector("#refresh").onclick = function () {
         getNewData(name, description, img)
     }
-
-    var myModal = document.getElementById("exampleModal")
-    var myInput = document.getElementById("info")
-
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-    })
 }
 
 function httpGetAsync(theUrl, callback) {

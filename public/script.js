@@ -27,17 +27,31 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function getNewData(name, description, img, progressBar) {
-    httpGetAsync("http://getfreeideas.xyz/getBook", function (callback) {
+    httpGetAsync("http://localhost:3000/getBook", function (callback) {
         var data = JSON.parse(callback);
         name.innerText = data.name
         description.innerText = data.description
         img.src = data.img
-        if (data.money_raised < 100) {
-            progressBar.setAttribute('aria-valuenow', data.money_raised)
-            progressBar.setAttribute('style', 'width:' + data.money_raised + '%')
+        if (data.money_raised + 10 < 100) {
+            progressBar.setAttribute('aria-valuenow', (data.money_raised + 10))
+            progressBar.setAttribute('style', 'width:' + (data.money_raised + 10) + '%')
+            progressBar.innerText = "$ " + data.money_raised.toFixed(2)
         } else {
-            progressBar.setAttribute('aria-valuenow', 0.1)
-            progressBar.setAttribute('style', 'width:' + data + '%')
+            progressBar.setAttribute('aria-valuenow', 100)
+            progressBar.setAttribute('style', 'width:' + 100 + '%')
         }
     })
+    // httpGetAsync("http://getfreeideas.xyz/getBook", function (callback) {
+    //     var data = JSON.parse(callback);
+    //     name.innerText = data.name
+    //     description.innerText = data.description
+    //     img.src = data.img
+    //     if (data.money_raised < 100) {
+    //         progressBar.setAttribute('aria-valuenow', data.money_raised)
+    //         progressBar.setAttribute('style', 'width:' + data.money_raised + '%')
+    //     } else {
+    //         progressBar.setAttribute('aria-valuenow', 0.1)
+    //         progressBar.setAttribute('style', 'width:' + data + '%')
+    //     }
+    // })
 }

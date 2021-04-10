@@ -24,7 +24,7 @@ const findDocuments = function (db, docId, callback) {
     const collection = db.collection('books');
     collection.find({ id: docId }).toArray(function (err, docs) {
         assert.equal(err, null);
-        collection.updateOne({ id: docId }, { $set: { money_raised: docs[0].money_raised + 0.1 } }, function (err, result) {
+        collection.updateOne({ id: docId }, { $set: { money_raised: docs[0].money_raised + 0.01 } }, function (err, result) {
             assert.equal(err, null);
             assert.equal(1, result.result.n);
         });

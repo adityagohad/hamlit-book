@@ -27,7 +27,7 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function getNewData(name, description, img, progressBar) {
-    httpGetAsync("http://localhost:3000/getBook", function (callback) {
+    httpGetAsync("http://getfreeideas.xyz/getBook", function (callback) {
         var data = JSON.parse(callback);
         name.innerText = data.name
         description.innerText = data.description

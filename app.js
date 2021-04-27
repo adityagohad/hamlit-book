@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/getBook', function (req, res) {
-    var i = Math.floor(Math.random() * 4) + 1;
+    var i = Math.floor(Math.random() * 50) + 1;
     initDB(function (db, client) {
         findDocuments(db, i, function (data) {
 

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 
 var fs = require('fs');
 
@@ -11,6 +12,7 @@ const dbName = 'books';
 const app = express();
 
 app.use(express.static('public'));
+app.use(cors())
 
 const initDB = function (callback) {
     MongoClient.connect(url, function (err, client) {

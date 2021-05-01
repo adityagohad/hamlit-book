@@ -1,40 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+:root {
+  --primary-color: #53284d;
+  --light-color: #3a3b41;
+}
+
 .mainContainer {
-    padding-top: 45px;
+  padding: 0.4rem 1.6rem 0 1.6rem;
 }
 
-.heading {
-    text-align: center;
+/* Top Header Start */
+.profile-pic {
+  width: 45px;
+  border-radius: 9px;
 }
 
-.progressbarContainer {
-    width: 50%;
-    margin-top: 25px;
+.user-title {
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--primary-color);
+  margin: 0;
 }
 
-.displayEx {
-    font-size: 24px;
-    padding-bottom: 4px;
+.description {
+  font-family: 'Nunito';
+  font-weight: 600;
+  color: var(--light-color);
+  margin: 0;
 }
 
-.mainRow {
-    width: 75%;
-    padding-top: 45px;
+/* Top Header End */
+
+/* Donation Details Section Start */
+.donation-details > .next-info,
+.donation-details > .total-money {
+  font-family: 'Nunito';
+  font-weight: 800;
+  color: var(--light-color);
 }
 
-.bookDescription {
-    font-size: 16px;
+.donation-details > .next-info > p {
+  margin: 0 0 0 0.4rem;
 }
 
-.info {
-    width: 48px;
-    height: 24px;
+.donation-details > .total-money > p {
+  color: var(--primary-color);
+  margin: 0 0 0 0.4rem;
 }
 
-.modelSections {
-    font-weight: bold;
+.donation-details > .total-money > p > span {
+  color: var(--light-color);
+  font-family: 'Nunito';
+  font-weight: 600;
 }
 
-.close {
-    padding-left: 40px;
-    padding-top: 24px;
+.progress-bar {
+  background-color: var(--primary-color);
+}
+
+.active-btn {
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
+.disabled-btn {
+  background-color: #c2a2be !important;
+  border: none;
+}
+
+.donate-btn {
+  margin-left: 1.4rem;
+  border-radius: 9px;
+  font-family: 'Nunito';
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+}
+
+.bullet {
+  width: 11px;
+  height: 11px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+/* Donation Details Section Start */
+
+/* Footer Section Start */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+.col-1,
+.col-2 {
+  width: 200px;
+  height: 45px;
+  margin: 6px 22px;
+}
+
+.col-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.col-2 .logo {
+  height: 30px;
+  width: 140px;
+}
+
+.vertical-line {
+  width: 2px;
+  background-color: var(--light-color);
+  height: 65px;
+}
+
+.ratings > span {
+  font-size: 14px;
+  font-family: 'Nunito';
+  font-weight: normal;
+}
+.bi-star,
+.bi-star-fill {
+  font-size: 14px;
+}
+
+.bi-star-fill {
+  color: #fff230;
+}
+
+/* Footer Section End */
+
+/* Book Section Start */
+.book-container {
+  height: 75%;
+}
+
+.book {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 15px 1px 10px rgb(0 0 0 / 15%),
+    inset 13px 1px 16px 0px rgb(0 0 0 / 30%);
+  transform: translate(-50%, 0%);
+  perspective: 1000px;
+  position: relative;
+  left: 30%;
+  z-index: 1;
+}
+
+.book::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+
+.book::after {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/* Open book when the .book element is hovered */
+.book:hover .cover {
+  transform: rotateY(-180deg);
+}
+
+.book:hover::after,
+.book:hover::before {
+  opacity: 1;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.book-content {
+  padding: 40px;
+  height: 100%;
+}
+
+#bookDiscription {
+  font-family: 'Nunito';
+  font-weight: normal;
+  font-size: 17px;
+  color: #48484a;
+  overflow-y: scroll;
+  height: 60%; /* 400px */
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: all 0.5s ease-in;
+  box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+  z-index: -2;
+  opacity: 0;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  opacity: 0;
+}
+
+.book:hover .cover::after,
+.book:hover .cover::before {
+  opacity: 1;
+  box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 4rem;
+}
+
+figure.front {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+figure.back {
+  background-color: white;
+  transform: rotateY(180deg);
+  height: 100%;
+}
+
+.poster {
+  height: 100%;
+}
+#title {
+  font-size: x-large;
+}
+/* Book Section End */
+
+/* Raw Styles */
+hr {
+  margin-top: 10px;
+  background-color: #7b7b7b;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+.bg-gradient {
+  background: transparent linear-gradient(180deg, #d3cce3 0%, #eef2f3 100%) 0%
+    0% no-repeat padding-box !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #efefef;
+  border-radius: 12px;
 }

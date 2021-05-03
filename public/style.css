@@ -310,3 +310,42 @@ hr {
   background: #efefef;
   border-radius: 12px;
 }
+/* Modal Style Start */
+.heading {
+  text-align: center;
+}
+
+.progressbarContainer {
+  width: 50%;
+  margin-top: 25px;
+}
+
+.displayEx {
+  font-size: 24px;
+  padding-bottom: 4px;
+}
+
+.mainRow {
+  width: 75%;
+  padding-top: 45px;
+}
+
+.bookDescription {
+  font-size: 16px;
+}
+
+.info {
+  width: 48px;
+  height: 24px;
+}
+
+.modelSections {
+  font-weight: bold;
+}
+
+.close {
+  padding-left: 40px;
+  padding-top: 24px;
+}
+
+/* Modal Style End */

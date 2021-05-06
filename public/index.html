@@ -1,106 +1,264 @@
 <html>
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="description" content="Best website to donte books">
-    <meta name="keywords" content="books, author, landing page, plugin, donation, joy">
-    <meta name="author" content="Hamlit">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="description" content="Best website to donte books" />
+    <meta
+      name="keywords"
+      content="books, author, landing page, plugin, donation, joy"
+    />
+    <meta name="author" content="Hamlit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-    <script data-ad-client="ca-pub-8630666157884866" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script type="text/javascript"> var infolinks_pid = 3319337; var infolinks_wsid = 0;</script>
-    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
-    <link rel="icon" href="books.png" type="books/png" sizes="16x16">
-</head>
+    <script
+      data-ad-client="ca-pub-8630666157884866"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script type="text/javascript">
+      var infolinks_pid = 3319337
+      var infolinks_wsid = 0
+    </script>
+    <script
+      type="text/javascript"
+      src="//resources.infolinks.com/js/infolinks_main.js"
+    ></script>
+    <link rel="icon" href="books.png" type="books/png" sizes="16x16" />
+  </head>
 
-<body>
-    <div class="container mainContainer">
-
-        <div type="button" class="row justify-content-end">
-            <img class="info" id="info" data-bs-toggle="modal" data-bs-target="#exampleModal" src="info.png" />
+  <body class="bg-gradient">
+    <!-- Use class 'bg-gradient' for colored gradient background-->
+    <div class="mainContainer">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-center align-items-center">
+          <div>
+            <img
+              class="profile-pic"
+              src="https://i.pinimg.com/originals/88/bd/4b/88bd4b9c59ae46726bc9971fe6fb20f5.jpg"
+            />
+          </div>
+          <div class="ms-3">
+            <h4 class="user-title">Hello user!</h4>
+            <p class="description">you've donated 23 books so far</p>
+          </div>
         </div>
 
-        <h1 class="row justify-content-center display-5">One of the simplest ways to raise
-            money for donating books</h1>
+        <div class="d-flex justify-content-between align-items-center">
+          <i
+            class="bi bi-list fs-1"
+            id="info"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            src="info.png"
+          ></i>
+        </div>
+      </div>
 
-        <div class="row justify-content-md-center">
-            <div class="progressbarContainer">
-                <div class="display-6 row justify-content-md-center displayEx"> Money raised so far</div>
-                <div class="progress">
-                    <div id="progress" class="progress-bar" role="progressbar" style="width: 0.1%" aria-valuenow="0.1"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+      <hr />
+
+      <div class="d-flex flex-wrap justify-content-between donation-details">
+        <div
+          class="next-info d-inline-flex justify-content-center align-items-center"
+        >
+          <div class="bullet"></div>
+          <p>39% to donate your next book</p>
+        </div>
+
+        <div
+          class="donations-progress d-flex justify-content-center align-items-center flex-shrink-1"
+        >
+          <div class="progress" style="height: 8px; width: 200px;">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 60%;"
+              aria-valuenow="60"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <!-- For disabled button user class 'disabled-btn'. For active button, use class 'active-btn'  -->
+          <button
+            type="button"
+            class="btn btn-primary donate-btn disabled-btn"
+            disabled
+          >
+            Donate
+          </button>
+        </div>
+
+        <div
+          class="total-money d-inline-flex justify-content-center align-items-center"
+        >
+          <div class="bullet"></div>
+          <p>
+            Total money raised:
+            <span>$23,321.03</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- This is the container element that contains the book -->
+      <div
+        style="margin: 1.4rem 0rem 1rem 0;"
+        class="book-container d-flex justify-content-center align-items-center"
+      >
+        <!-- Animation starts when this .book class is hovered  -->
+        <!-- 
+        When .book element is hovered, .cover rotates by 180 at y-axis. 
+        See the CSS code for .book and .cover to understand the animation 
+        -->
+        <div class="book">
+          <!-- Cover of book -->
+          <div class="cover">
+            <!-- Front side of book -->
+            <figure class="front">
+              <img class="img-fluid poster" />
+            </figure>
+            <!-- Back side of book -->
+            <figure class="back">
+              <img class="img-fluid poster" />
+            </figure>
+          </div>
+          <!-- Inner side of book that contains the text -->
+          <div class="book-content">
+            <h1 class="" id="title"></h1>
+            <h1>___</h1>
+            <p class="" id="bookDiscription"></p>
+          </div>
+        </div>
+      </div>
+
+      <center style="margin: 0 0 0.4rem 0;">
+        <button type="button" class="btn btn-primary btn-small" id="refresh">
+          Show me new book
+        </button>
+      </center>
+
+      <div class="footer">
+        <div class="col-1">
+          <img class="logo" src="./assets/amazon-logo.jpg" />
+        </div>
+        <div class="vertical-line"></div>
+        <div class="col-2">
+          <img class="logo" src="./assets/good-reads-logo.png" />
+          <div class="ratings">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <span>(200 votes)</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div type="button" class="row justify-content-end">
+              <button
+                type="button"
+                class="btn-close close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
-        </div>
+            <div class="modal-body display-6 bookDescription">
+              <p class="modelSections">About Joy</p>
+              <p>
+                Joy transforms your "new tab" page. Each time you open a tab,
+                you will be greeted with an incredible new tab filled with
+                custom widgets, new book suggestions, and a couple of banner
+                ads. We collect ad revenue from the page and use it to donate
+                books for kids.
+              </p>
 
-        <div class="row justify-content-md-center">
-            <div class="mainRow">
-                <div class="row justify-content-md-center">
-                    <div class="col-6">
-                        <h1 class="display-6" id="title"></h1>
-                        <h1> ___ </h1>
-                        <p class="bookDescription" id="bookDiscription"></p>
-                        <button type="button" class="btn btn-primary btn-lg" id="refresh">Show me new book</button>
-                    </div>
-                    <div class="col-6">
-                        <img class="img-fluid" id="poster">
-                    </div>
-                </div>
+              <p>
+                Spread the joy of reading and raise money for book donation with
+                every tab you open in Chrome! Just by surfing the web, you can
+                build libraries and assist child education for children in need.
+              </p>
+
+              <p class="modelSections">Our Mission</p>
+              <p>
+                Our mission is to support child education. Join us by adding the
+                extension now and spread the joy of reading, learning, and
+                sharing books. We will be adding new child support causes and
+                more options to raise money in the future.
+              </p>
+
+              <p class="modelSections">Your Privacy Matters</p>
+              <p>
+                Joy is committed to protecting your privacy and using your data
+                responsibly. We save information relevant to your profile on Joy
+                (such as your preferences and new tab page widgets). We do not
+                collect any information we do not need.
+              </p>
+
+              <p>
+                The new tab page contains advertisements that help us raise
+                money for charity. These ads are delivered by our advertising
+                partners. These partners may collect anonymized data about you
+                in order to show you ads you'll be interested in.
+              </p>
+              <a
+                href="https://www.freeprivacypolicy.com/live/43b1b53c-0526-444b-ae97-81aa733e81f8"
+              >
+                Privacy policy
+              </a>
             </div>
+          </div>
         </div>
+      </div>
+      <!--
+      <h1 class="row justify-content-center display-5">
+        One of the simplest ways to raise money for donating books
+      </h1>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div type="button" class="row justify-content-end">
-                        <button type="button" class="btn-close close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body display-6 bookDescription">
-                        <p class="modelSections">About Joy</p>
-                        <p>Joy transforms your "new tab" page. Each time you open a tab, you will be greeted with an
-                            incredible new tab filled with custom widgets, new book suggestions, and a couple of banner
-                            ads.
-                            We collect ad revenue from the page and use it to donate books for kids.</p>
-
-                        <p>Spread the joy of reading and raise money for book donation with every tab you open in
-                            Chrome!
-                            Just by surfing the web, you can build libraries and assist child education for children in
-                            need.</p>
-
-                        <p class="modelSections">Our Mission</p>
-                        <p>Our mission is to support child education. Join us by adding the extension now and spread the
-                            joy of reading, learning, and sharing books. We will be adding new child support causes and
-                            more
-                            options to raise money in the future.</p>
-
-                        <p class="modelSections">Your Privacy Matters</p>
-                        <p>Joy is committed to protecting your privacy and using your data responsibly. We save
-                            information
-                            relevant to your profile on Joy (such as your preferences and new tab page widgets). We do
-                            not
-                            collect any information we do not need.</p>
-
-                        <p>The new tab page contains advertisements that help us raise money for charity. These ads are
-                            delivered by our advertising partners. These partners may collect anonymized data about you
-                            in
-                            order to show you ads you'll be interested in.</p>
-                        <a href="https://www.freeprivacypolicy.com/live/43b1b53c-0526-444b-ae97-81aa733e81f8">Privacy
-                            policy</p>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-md-center">
+        <div class="progressbarContainer">
+          <div class="display-6 row justify-content-md-center displayEx">
+            Money raised so far
+          </div>
+          <div class="progress">
+            <div
+              id="progress"
+              class="progress-bar"
+              role="progressbar"
+              style="width: 0.1%;"
+              aria-valuenow="0.1"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
         </div>
+      </div>
+
+      -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+      integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

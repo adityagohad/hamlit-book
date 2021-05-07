@@ -10,6 +10,8 @@ window.onload = function () {
   const description = document.querySelector('#bookDiscription');
   const img = document.querySelectorAll('.poster');
   const progressBar = document.querySelector('#progress');
+  const moneyRaised = document.querySelector("#moneyRaised")
+  const targetRemaining = document.querySelector("targetremaining")
 
   getNewData(name, description, img, progressBar);
 
@@ -33,14 +35,16 @@ function getNewData(name, description, img, progressBar) {
     var data = JSON.parse(callback);
     name.innerText = data.name;
     description.innerText = data.description;
+    moneyRaised.innerText = "$ "+data.money_raised.toFixed(2);
     img.forEach((e) => (e.src = data.img));
-    if (data.money_raised + 10 < 100) {
-      progressBar.setAttribute('aria-valuenow', data.money_raised + 10);
+    if (data.money_raised < 100) {
+      progressBar.setAttribute('aria-valuenow', data.money_raised);
       progressBar.setAttribute(
         'style',
-        'width:' + (data.money_raised + 10) + '%'
+        'width:' + (data.money_raised) + '%'
       );
-      progressBar.innerText = '$ ' + data.money_raised.toFixed(2);
+      targetRemaining.innerText = (100 * data.money_raised)/(data.cost * data.tagetUnits)+" to donate your next book"
+      //progressBar.innerText = '$ ' + data.money_raised.toFixed(2);
     } else {
       progressBar.setAttribute('aria-valuenow', 100);
       progressBar.setAttribute('style', 'width:' + 100 + '%');

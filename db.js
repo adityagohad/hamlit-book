@@ -39,6 +39,8 @@ function populate() {
         data['name'] = results[i]['name'];
         data['description'] = results[i]['description'];
         data['img'] = results[i]['img'];
+        data['cost'] = results[i]['cost'];
+        data['target'] = results[i]['target'];
         data['money_raised'] = 0
         dbs.push(data)
     }

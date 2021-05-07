@@ -43,7 +43,7 @@ function getNewData(name, description, img, progressBar) {
         'style',
         'width:' + (data.money_raised) + '%'
       );
-      targetRemaining.innerText = (100 * data.money_raised)/(data.cost * data.target)+" to donate your next book"
+      targetRemaining.innerText = (100 * data.money_raised)/(data.cost * data.target)+"% to donate your next book"
       //progressBar.innerText = '$ ' + data.money_raised.toFixed(2);
     } else {
       progressBar.setAttribute('aria-valuenow', 100);

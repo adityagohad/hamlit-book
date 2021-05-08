@@ -8,7 +8,7 @@ window.onload = function () {
 
   const name = document.querySelector('#title');
   const description = document.querySelector('#bookDiscription');
-  const img = document.querySelectorAll('.poster');
+  const img = document.querySelectorAll('figure.poster');
   const progressBar = document.querySelector('#progress');
   const moneyRaised = document.querySelector("#moneyRaised")
   const targetRemaining = document.querySelector("targetremaining")
@@ -36,18 +36,26 @@ function getNewData(name, description, img, progressBar) {
     name.innerText = data.name;
     description.innerText = data.description;
     moneyRaised.innerText = "$ "+data.money_raised.toFixed(2);
-    img.forEach((e) => (e.src = data.img));
-    if (data.money_raised < 100) {
-      progressBar.setAttribute('aria-valuenow', data.money_raised);
-      progressBar.setAttribute(
-        'style',
-        'width:' + (data.money_raised) + '%'
-      );
-      targetRemaining.innerText = (100 * data.money_raised)/(data.cost * data.target).toFixed(4)+"% to donate your next book"
-      //progressBar.innerText = '$ ' + data.money_raised.toFixed(2);
-    } else {
-      progressBar.setAttribute('aria-valuenow', 100);
-      progressBar.setAttribute('style', 'width:' + 100 + '%');
+    const mImg = document.createElement("img");
+    mImg.src = data.img;
+    document.body.appendChild(mImg);
+    mImg.onload = function(){
+      const {width, height} = mImg.getBoundingClientRect();
+      document.body.removeChild(mImg);
+      document.getElementById("book-container").style.width = 500*width/height;
+      document.getElementById("book-container").style.margin = "1rem auto 1rem";
+      img.forEach((e) => (e.style.backgroundImage = `url(${data.img})`));
+      if (data.money_raised < 100) {
+        progressBar.setAttribute('aria-valuenow', data.money_raised);
+        progressBar.setAttribute(
+          'style',
+          'width:' + (data.money_raised) + '%'
+        );
+        targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
+      } else {
+        progressBar.setAttribute('aria-valuenow', 100);
+        progressBar.setAttribute('style', 'width:' + 100 + '%');
+      }
     }
   });
 }

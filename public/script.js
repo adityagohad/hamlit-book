@@ -12,6 +12,7 @@ window.onload = function () {
   const progressBar = document.querySelector('#progress');
   const moneyRaised = document.querySelector("#moneyRaised")
   const targetRemaining = document.querySelector("targetremaining")
+  const donateCount = document.getElementById("donateCount")
 
   getNewData(name, description, img, progressBar);
 
@@ -45,17 +46,20 @@ function getNewData(name, description, img, progressBar) {
       document.getElementById("book-container").style.width = 500*width/height;
       document.getElementById("book-container").style.margin = "1rem auto 1rem";
       img.forEach((e) => (e.style.backgroundImage = `url(${data.img})`));
-      if (data.money_raised < 100) {
-        progressBar.setAttribute('aria-valuenow', data.money_raised);
-        progressBar.setAttribute(
-          'style',
-          'width:' + (data.money_raised) + '%'
-        );
-        targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
-      } else {
-        progressBar.setAttribute('aria-valuenow', 100);
-        progressBar.setAttribute('style', 'width:' + 100 + '%');
-      }
+      donateCount.innerText = "you've donated  " + parseInt(data.money_raised/10) + " books so far"
+      targetRemaining.innerText = ((data.money_raised%10)*10).toFixed(2)+"% to donate your next book";
+      //targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
+      // if (data.money_raised < 100) {
+      //   progressBar.setAttribute('aria-valuenow', data.money_raised);
+      //   progressBar.setAttribute(
+      //     'style',
+      //     'width:' + (data.money_raised) + '%'
+      //   );
+      //   targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
+      // } else {
+      //   progressBar.setAttribute('aria-valuenow', 100);
+      //   progressBar.setAttribute('style', 'width:' + 100 + '%');
+      // }
     }
   });
 }

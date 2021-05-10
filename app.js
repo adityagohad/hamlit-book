@@ -34,6 +34,17 @@ const findDocuments = function (db, docId, callback) {
     });
 };
 
+const findMoneyRaised = function(db, callback){
+    const collection = db.collection('money');
+    collection.find({}).toArray(function (err, docs){
+        assert.equal(err, null);
+        collection.updateOne({ id: 1 }, { $set: { money_raised: docs[0].money_raised + 0.01 } }, function (err, result) {
+            assert.equal(err, null);
+            assert.equal(1, result.result.n);
+        });
+    });
+}
+
 app.get('/', function (req, res) {
     res.end()
 });
@@ -42,8 +53,11 @@ app.get('/getBook', function (req, res) {
     var i = Math.floor(Math.random() * 50) + 1;
     initDB(function (db, client) {
         findDocuments(db, i, function (data) {
-            res.end(JSON.stringify(data[0]));
-            client.close()
+            findMoneyRaised(db, function(moneyData){
+                data[0]['money_raised'] = moneyData['money_raised']
+                res.end(JSON.stringify(data[0]));
+                client.close()
+            })
         })
     })
 });

@@ -23,12 +23,18 @@ const insertDocuments = function (db, data, callback) {
     });
 };
 
+const createMoneyRaised = function(db, data, callback){
+    const collection = db.collection('money');
+    collection.insertMany(data, function(err, result){
+        collback(result)
+    });
+};
+
 fs.createReadStream('data.csv')
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
         populate();
-        //console.log(results);
     });
 
 function populate() {
@@ -44,11 +50,21 @@ function populate() {
         data['money_raised'] = 0
         dbs.push(data)
     }
+
     initDB(function (db, client) {
         insertDocuments(db, dbs, function () {
-            console.log("here");
-            client.close();
+            client.close()
         });
+    });
 
+    initDB(function (db, client){     
+        var moneydData = {}
+        moneydData['id'] = 1
+        moneydData['money_raised'] = 0
+        var moneyDbs = Array()
+        moneyDbs.push(moneydData)
+        createMoneyRaised(db, moneydData, function(){
+            client.close()
+        });
     });
 }

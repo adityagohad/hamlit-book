@@ -26,7 +26,7 @@ const insertDocuments = function (db, data, callback) {
 const createMoneyRaised = function(db, data, callback){
     const collection = db.collection('money');
     collection.insertMany(data, function(err, result){
-        collback(result)
+        callback(result)
     });
 };
 

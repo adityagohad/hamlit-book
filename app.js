@@ -41,6 +41,7 @@ const findMoneyRaised = function(db, callback){
         collection.updateOne({ id: 1 }, { $set: { money_raised: docs[0].money_raised + 0.01 } }, function (err, result) {
             assert.equal(err, null);
             assert.equal(1, result.result.n);
+            callback(docs);
         });
     });
 }
@@ -54,7 +55,7 @@ app.get('/getBook', function (req, res) {
     initDB(function (db, client) {
         findDocuments(db, i, function (data) {
             findMoneyRaised(db, function(moneyData){
-                data[0]['money_raised'] = moneyData['money_raised']
+                data[0].money_raised = moneyData[0].money_raised;
                 res.end(JSON.stringify(data[0]));
                 client.close()
             })

@@ -63,7 +63,7 @@ function populate() {
         moneydData['money_raised'] = 0
         var moneyDbs = Array()
         moneyDbs.push(moneydData)
-        createMoneyRaised(db, moneydData, function(){
+        createMoneyRaised(db, moneyDbs, function(){
             client.close()
         });
     });

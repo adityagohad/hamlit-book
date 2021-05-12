@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name" : "JOY",
+  "description" : "To read new books",
+  "version" : "1.0",
+
+  "chrome_url_overrides" : {
+      "newtab" : "index.html"
+  },
+
+  "permissions":["tabs"]
+}

@@ -47,19 +47,15 @@ function getNewData(name, description, img, progressBar) {
       document.getElementById("book-container").style.margin = "1rem auto 1rem";
       img.forEach((e) => (e.style.backgroundImage = `url(${data.img})`));
       donateCount.innerText = "you've donated  " + parseInt(data.money_raised/10) + " books so far"
-      targetRemaining.innerText = ((data.money_raised%10)*10).toFixed(2)+"% to donate your next book";
+      const progressValue = ((data.money_raised%10)*10).toFixed(2);
+      targetRemaining.innerText = (100 - progressValue)+"% to donate your next book";
       //targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
-      // if (data.money_raised < 100) {
-      //   progressBar.setAttribute('aria-valuenow', data.money_raised);
-      //   progressBar.setAttribute(
-      //     'style',
-      //     'width:' + (data.money_raised) + '%'
-      //   );
-      //   targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
-      // } else {
-      //   progressBar.setAttribute('aria-valuenow', 100);
-      //   progressBar.setAttribute('style', 'width:' + 100 + '%');
-      // }
+        progressBar.setAttribute('aria-valuenow', progressValue);
+        progressBar.setAttribute(
+          'style',
+          'width:' + (progressValue) + '%'
+        );
+        //targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
     }
   });
 }

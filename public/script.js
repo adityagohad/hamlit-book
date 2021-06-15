@@ -32,7 +32,7 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function getNewData(name, description, img, progressBar) {
-  httpGetAsync('http://getfreeideas.xyz/getBook', function (callback) {
+  httpGetAsync('http://spreadjoy.online/getBook', function (callback) {
     var data = JSON.parse(callback);
     name.innerText = data.name;
     description.innerText = data.description;
@@ -48,7 +48,7 @@ function getNewData(name, description, img, progressBar) {
       img.forEach((e) => (e.style.backgroundImage = `url(${data.img})`));
       donateCount.innerText = "you've donated  " + parseInt(data.money_raised/10) + " books so far"
       const progressValue = ((data.money_raised%10)*10).toFixed(2);
-      targetRemaining.innerText = (100 - progressValue)+"% to donate your next book";
+      targetRemaining.innerText = (100 - progressValue).toFixed(2)+"% to donate your next book";
       //targetRemaining.innerText = ((100 * data.money_raised)/(data.cost * data.target)).toFixed(4)+"% to donate your next book";
         progressBar.setAttribute('aria-valuenow', progressValue);
         progressBar.setAttribute(

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-signin-client_id"
+      content="325409313087-bf43i3fhsuglpuosi1o9ivqotn3qc9ri.apps.googleusercontent.com"
+    />
+    <title>Login/Sign Up</title>
+    <link rel="stylesheet" href="./auth.css" />
+  </head>
+  <body>
+    <script>
+      function statusChangeCallback(response) {
+        console.log(response) // The current login status of the person.
+        if (response.status === 'connected') {
+          window.location.pathname = '/'
+        } else {
+          console.warn('Please login')
+        }
+      }
+
+      function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+          statusChangeCallback(response)
+        })
+      }
+
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '849453379203719',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v12.0',
+        })
+
+        FB.getLoginStatus(function (response) {
+          checkLoginState(response)
+        })
+      }
+    </script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
+
+    <h1>Login to continue</h1>
+    <div class="btn-container">
+      <div class="btn">
+        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+        <div id="my-signin2" data-onsuccess="onSignIn"></div>
+      </div>
+      <div class="btn">
+        <div
+          class="fb-login-button"
+          data-width=""
+          data-size="large"
+          data-button-type="login_with"
+          data-layout="default"
+          data-auto-logout-link="false"
+          data-use-continue-as="false"
+          onlogin="checkLoginState();"
+        ></div>
+      </div>
+    </div>
+
+    <script>
+      function renderButton() {
+        gapi.signin2.render('my-signin2', {
+          scope: 'profile email',
+          width: 230,
+          height: 40,
+          longtitle: true,
+          theme: 'light',
+          onsuccess: onSignIn,
+        })
+      }
+    </script>
+
+    <script
+      src="https://apis.google.com/js/platform.js?onload=renderButton"
+      async
+      defer
+    ></script>
+
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile()
+        console.log('Sign in successful')
+        console.log('Redirecting')
+        window.location.pathname = '/'
+      }
+    </script>
+  </body>
+</html>

@@ -71,20 +71,11 @@ function httpGetAsync(theUrl, callback) {
 
 function changeBackground(to) {
   const body = document.querySelector('body');
-  switch (to) {
-    case 'white':
-      body.style.background = 'white';
-      return;
-
-    case 'black':
-      body.style.background = 'black';
-      return;
-
-    case 'gradient':
-      body.style.background =
-        'transparent linear-gradient(180deg, #d3cce3 0%, #eef2f3 100%) 0% 0% no-repeat padding-box';
-      return;
+  if (to === 'gradient') {
+    body.style.background =
+      'transparent linear-gradient(180deg, #d3cce3 0%, #eef2f3 100%) 0% 0% no-repeat padding-box';
   }
+  body.style.background = to;
 }
 
 function getNewData(name, description, img) {

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&family=Special+Elite&display=swap');
 :root {
   --primary-color: #53284d;
   --light-color: #3a3b41;
@@ -18,7 +19,7 @@
   font-family: 'Nunito';
   font-weight: 800;
   font-size: 20px;
-  color: var(--primary-color);
+  color: black;
   margin: 0;
 }
 
@@ -33,7 +34,7 @@
   width: 20px;
   height: 20px;
   border: solid 1px #333;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   cursor: pointer;
   transform: 1s ease;
 }
@@ -60,7 +61,7 @@
 }
 
 .donation-details > .total-money > p {
-  color: var(--primary-color);
+  color: black;
   margin: 0 0 0 0.4rem;
 }
 
@@ -68,15 +69,6 @@
   color: var(--light-color);
   font-family: 'Nunito';
   font-weight: 600;
-}
-
-.progress-bar {
-  background-color: var(--primary-color);
-}
-
-.active-btn {
-  background-color: var(--primary-color) !important;
-  border: none;
 }
 
 .disabled-btn {
@@ -157,13 +149,12 @@
 
 /* Book Section Start */
 #bookDiscription {
-  font-family: 'Nunito';
-  font-weight: normal;
+  font-family: 'Special Elite';
   font-size: 17px;
-  color: #48484a;
   overflow-y: scroll;
 }
 #title {
+  font-family: 'Libre Caslon Text';
   font-size: x-large;
   text-align: center;
 }

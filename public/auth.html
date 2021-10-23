@@ -14,6 +14,7 @@
   <body>
     <script>
       function statusChangeCallback(response) {
+        console.log('statusChangeCallback')
         console.log(response) // The current login status of the person.
         if (response.status === 'connected') {
           window.location.pathname = '/'
@@ -48,26 +49,40 @@
       src="https://connect.facebook.net/en_US/sdk.js"
     ></script>
 
-    <h1>Login to continue</h1>
-    <div class="btn-container">
-      <div class="btn">
-        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-        <div id="my-signin2" data-onsuccess="onSignIn"></div>
-      </div>
-      <div class="btn">
-        <div
-          class="fb-login-button"
-          data-width=""
-          data-size="large"
-          data-button-type="login_with"
-          data-layout="default"
-          data-auto-logout-link="false"
-          data-use-continue-as="false"
-          onlogin="checkLoginState();"
-        ></div>
-      </div>
-    </div>
+    <div class="container">
+      <h1>Login to continue</h1>
+      <div class="btn-container">
+        <div class="btn">
+          <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+          <div id="my-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+        <div class="btn">
+          <div
+            class="fb-login-button"
+            data-width=""
+            data-size="large"
+            data-button-type="login_with"
+            data-layout="default"
+            data-auto-logout-link="false"
+            data-use-continue-as="false"
+            onlogin="checkLoginState();"
+          ></div>
+        </div>
 
+        <p class="privacy-text">
+          By continuing, you are indicating that you accept our
+          <a
+            href="https://www.freeprivacypolicy.com/live/43b1b53c-0526-444b-ae97-81aa733e81f8"
+          >
+            Privacy Policy
+          </a>
+        </p>
+      </div>
+
+      <h3 class="description">
+        JOY -Easiest way to donate books and stay in love with reading
+      </h3>
+    </div>
     <script>
       function renderButton() {
         gapi.signin2.render('my-signin2', {

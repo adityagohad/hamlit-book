@@ -1,5 +1,6 @@
-/* Contains styles for book */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 
+/* Contains styles for book */
 .book {
   width: 100%;
   height: calc(100vh - 130px);
@@ -35,6 +36,7 @@
   width: 100%;
   padding-top: 1rem;
   border-top: solid 1px black;
+  font-family: 'Nunito';
 }
 
 #bookDiscription {

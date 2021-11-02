@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&family=Special+Elite&display=swap');
 :root {
   --primary-color: #53284d;
   --light-color: #3a3b41;
@@ -18,7 +19,7 @@
   font-family: 'Nunito';
   font-weight: 800;
   font-size: 20px;
-  color: var(--primary-color);
+  color: black;
   margin: 0;
 }
 
@@ -29,14 +30,30 @@
   margin: 0;
 }
 
+.theme-box {
+  width: 20px;
+  height: 20px;
+  border: solid 1px #333;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+  transform: 1s ease;
+}
+
+.theme-box:hover {
+  transform: scale(1.1);
+}
 /* Top Header End */
 
+.header-container {
+  height: 50px;
+}
 /* Donation Details Section Start */
 .donation-details > .next-info,
 .donation-details > .total-money {
   font-family: 'Nunito';
   font-weight: 800;
   color: var(--light-color);
+  height: 25px;
 }
 
 .donation-details > .next-info > p {
@@ -44,7 +61,7 @@
 }
 
 .donation-details > .total-money > p {
-  color: var(--primary-color);
+  color: black;
   margin: 0 0 0 0.4rem;
 }
 
@@ -52,15 +69,6 @@
   color: var(--light-color);
   font-family: 'Nunito';
   font-weight: 600;
-}
-
-.progress-bar {
-  background-color: var(--primary-color);
-}
-
-.active-btn {
-  background-color: var(--primary-color) !important;
-  border: none;
 }
 
 .disabled-btn {
@@ -140,149 +148,15 @@
 /* Footer Section End */
 
 /* Book Section Start */
-.book-container {
-  margin: 1rem auto 1rem;
-  width: 30%;
-  height: 500px;
-}
-
-.book {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  box-shadow: 15px 1px 10px rgb(0 0 0 / 15%),
-    inset 13px 1px 16px 0px rgb(0 0 0 / 30%);
-  transform: translate(-50%, 0%);
-  perspective: 1000px;
-  position: relative;
-  left: 100%;
-  z-index: 1;
-}
-
-.book::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 20px;
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0;
-}
-
-.book::after {
-  content: '';
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 40px;
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-/* Open book when the .book element is hovered */
-.book:hover .cover {
-  transform: rotateY(-180deg);
-}
-
-.book:hover::after,
-.book:hover::before {
-  opacity: 1;
-  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.2);
-}
-
-.book-content {
-  padding: 40px 10px 10px 10px;
-  height: 500px;
-}
-
 #bookDiscription {
-  font-family: 'Nunito';
-  font-weight: normal;
+  font-family: 'Special Elite';
   font-size: 17px;
-  color: #48484a;
   overflow-y: scroll;
-  height: 75% /* 400px */
-}
-
-.cover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: rotateY(0deg);
-  transform-style: preserve-3d;
-  transform-origin: left;
-  transition: all 0.5s ease-in;
-  box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.15);
-}
-
-.cover::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 40px;
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
-  z-index: -2;
-  opacity: 0;
-}
-
-.cover::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 20px;
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
-  z-index: -1;
-  opacity: 0;
-}
-
-.book:hover .cover::after,
-.book:hover .cover::before {
-  opacity: 1;
-  box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-figure {
-  margin: 0;
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  /*padding: 4rem;*/
-}
-
-figure.front {
-  background-color: rgb(94, 5, 2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-figure.back {
-  background-color: white;
-  transform: rotateY(180deg);
-  height: 100%;
-}
-
-.poster {
-  background-position: center;
-  background-size: cover;
-  height: 100%;
 }
 #title {
+  font-family: 'Libre Caslon Text';
   font-size: x-large;
+  text-align: center;
 }
 /* Book Section End */
 
@@ -290,15 +164,6 @@ figure.back {
 hr {
   margin-top: 10px;
   background-color: #7b7b7b;
-}
-
-.bg-white {
-  background-color: white !important;
-}
-
-.bg-gradient {
-  background: transparent linear-gradient(180deg, #d3cce3 0%, #eef2f3 100%) 0%
-    0% no-repeat padding-box !important;
 }
 
 ::-webkit-scrollbar {
@@ -311,7 +176,7 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #efefef;
+  background: rgba(77, 76, 76, 0.5);
   border-radius: 12px;
 }
 /* Modal Style Start */

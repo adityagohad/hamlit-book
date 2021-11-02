@@ -12,6 +12,7 @@
 .profile-pic {
   width: 45px;
   border-radius: 9px;
+  background-color: #aeaaaa;
 }
 
 .user-title {
@@ -207,7 +208,7 @@
   font-size: 17px;
   color: #48484a;
   overflow-y: scroll;
-  height: 75% /* 400px */
+  height: 75%; /* 400px */
 }
 
 .cover {

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: 400;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fb-login-button {
+  margin-top: 1rem;
+}
+
+.description {
+  font-family: 'Poppins';
+}
+.privacy-text {
+  font-size: x-small;
+  color: rgba(0, 0, 0, 0.5);
+  width: 56%;
+  text-align: center;
+  font-family: 'Poppins';
+}

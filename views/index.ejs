@@ -31,8 +31,8 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     ></script> -->
     <script type="text/javascript">
-      var infolinks_pid = 3319337
-      var infolinks_wsid = 0
+      var infolinks_pid = 3319337;
+      var infolinks_wsid = 0;
     </script>
     <script
       type="text/javascript"
@@ -76,7 +76,7 @@
           <div class="ms-3">
             <h4 class="user-title">Hello!</h4>
             <p id="donateCount" class="description">
-              you've donated 23 books so far
+              you've donated <%=bookDonated %> books so far
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <i class="bi bi-list" style="font-size: 30px;"></i>
+              <i class="bi bi-list" style="font-size: 30px"></i>
             </button>
             <ul
               class="dropdown-menu px-1"
@@ -104,7 +104,13 @@
                 data-bs-target="#exampleModal"
               >
                 <div
-                  class="p-1 d-flex justify-content-between align-items-center dropdown-item"
+                  class="
+                    p-1
+                    d-flex
+                    justify-content-between
+                    align-items-center
+                    dropdown-item
+                  "
                 >
                   <img src="./assets/about-us.png" width="26px" height="26px" />
                   <a class="dropdown-item" href="#">About</a>
@@ -112,7 +118,13 @@
               </li>
               <li>
                 <div
-                  class="p-1 d-flex justify-content-between align-items-center dropdown-item"
+                  class="
+                    p-1
+                    d-flex
+                    justify-content-between
+                    align-items-center
+                    dropdown-item
+                  "
                 >
                   <img
                     src="./assets/background.png"
@@ -120,26 +132,31 @@
                     height="26px"
                   />
                   <div
-                    class="dropdown-item d-flex justify-content-start align-items-center"
+                    class="
+                      dropdown-item
+                      d-flex
+                      justify-content-start
+                      align-items-center
+                    "
                   >
                     <div
                       class="theme-box"
-                      style="background-color: #d3cce3;"
+                      style="background-color: #d3cce3"
                       onclick="changeBackground('gradient')"
                     ></div>
                     <div
                       class="theme-box"
-                      style="background-color: #cbefec;"
+                      style="background-color: #cbefec"
                       onclick="changeBackground('#cbefec')"
                     ></div>
                     <div
                       class="theme-box"
-                      style="background-color: #ffede4;"
+                      style="background-color: #ffede4"
                       onclick="changeBackground('#ffede4')"
                     ></div>
                     <div
                       class="theme-box"
-                      style="background-color: white;"
+                      style="background-color: white"
                       onclick="changeBackground('white')"
                     ></div>
                   </div>
@@ -147,10 +164,16 @@
               </li>
               <li>
                 <div
-                  class="p-1 d-flex justify-content-between align-items-center dropdown-item"
+                  class="
+                    p-1
+                    d-flex
+                    justify-content-between
+                    align-items-center
+                    dropdown-item
+                  "
                 >
                   <img src="./assets/sign-out.png" width="26px" height="26px" />
-                  <a class="dropdown-item" href="#" onclick="signOut()">
+                  <a class="dropdown-item" href="/" onclick="signOut()">
                     Sign Out
                   </a>
                 </div>
@@ -158,16 +181,20 @@
 
               <li>
                 <div
-                  class="p-1 d-flex justify-content-between align-items-center dropdown-item"
+                  class="
+                    p-1
+                    d-flex
+                    justify-content-between
+                    align-items-center
+                    dropdown-item
+                  "
                 >
                   <img
                     src="./assets/patreon-icon.png"
                     width="26px"
                     height="26px"
                   />
-                  <a class="dropdown-item" href="#">
-                    Support us on PATREON
-                  </a>
+                  <a class="dropdown-item" href="#"> Support us on PATREON </a>
                 </div>
               </li>
             </ul>
@@ -179,14 +206,26 @@
 
       <div class="d-flex flex-wrap justify-content-between donation-details">
         <div
-          class="next-info d-inline-flex justify-content-center align-items-center"
+          class="
+            next-info
+            d-inline-flex
+            justify-content-center
+            align-items-center
+          "
         >
           <div class="bullet"></div>
-          <p id="targetRemaining"></p>
+          <p id="targetRemaining">
+            <%=remainingTab %> tab to donate your next book
+          </p>
         </div>
 
         <div
-          class="total-money d-inline-flex justify-content-center align-items-center"
+          class="
+            total-money
+            d-inline-flex
+            justify-content-center
+            align-items-center
+          "
         >
           <div class="bullet"></div>
           <p>
@@ -229,18 +268,18 @@
       </div>
 
       <script type="text/javascript">
-        $('#flipbook').turn({
+        $("#flipbook").turn({
           autoCenter: true,
-          display: 'single',
+          display: "single",
           duration: 1500,
-        })
+        });
 
         function nextPage() {
-          $('#flipbook').turn('peel', 'tr')
-          $('#flipbook').turn('next')
+          $("#flipbook").turn("peel", "tr");
+          $("#flipbook").turn("next");
         }
         function prevPage() {
-          $('#flipbook').turn('previous')
+          $("#flipbook").turn("previous");
         }
       </script>
       <!-- Page Flip Ends -->

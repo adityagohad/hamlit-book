@@ -75,10 +75,6 @@ app.get("/getBook", function (req, res) {
   });
 });
 // my work start from here
-
-// global varibale
-let remainingTab = 5;
-let bookDonated = 0;
 let name = "";
 let id = "";
 let email = "";
@@ -95,46 +91,50 @@ const User = new mongoose.model("User", userSchema);
 app.get("/", function (req, res) {
   res.render("auth");
 });
+// this route will be execute when user logged in.
+// and refresh page
 
 app.get("/successLogin", function (req, res) {
-  // find user if they have already some data if not then start with new
+  // checking user new or old
   User.find({ email: email }, function (err, foundUser) {
     if (!err) {
       if (foundUser.length == 0) {
-        // new user save tab and bookDonated for fresh user
-        // save userInfo to mongodb
+        console.log("its a new user");
+        // saving tab and bookDonated for newUser
         const user = new User({
           name: name,
           id: id,
-          remainingTab: remainingTab,
-          bookDonated: bookDonated,
+          remainingTab: 5,
+          bookDonated: 0,
           email: email,
         });
         user.save();
         res.render("index", {
-          remainingTab: remainingTab,
-          bookDonated: bookDonated,
+          remainingTab: 5,
+          bookDonated: 0,
         });
       } else {
-        console.log("old user hain");
-        console.log(foundUser);
         // old user
-        // find and update user and update tab and booked
+        console.log("its a old user");
+        let remainingTab = foundUser[0].remainingTab;
+        let bookDonated = foundUser[0].bookDonated;
         remainingTab--;
-        // update tabOpened
-        User.findOneAndUpdate(
-          { email: email },
-          { $set: { remainingTab: remainingTab } },
-          function (err, updated) {
-            if (!err) {
-              console.log("tab updated");
-            }
-          }
-        );
-
+        // find and update user tab and book
         if (remainingTab == 0) {
+          // find and update user tab and book when tab=0
+          remainingTab = 5;
           bookDonated++;
+          User.findOneAndUpdate(
+            { email: email },
+            { $set: { remainingTab: remainingTab } },
+            function (err, updated) {
+              if (!err) {
+                console.log("tab updated");
+              }
+            }
+          );
           // update book donate
+
           User.findOneAndUpdate(
             { email: email },
             { $set: { bookDonated: bookDonated } },
@@ -144,10 +144,21 @@ app.get("/successLogin", function (req, res) {
               }
             }
           );
-          console.log(bookDonated);
-          remainingTab = 5;
-          res.redirect("/successLogin");
+          res.render("index", {
+            remainingTab: remainingTab,
+            bookDonated: bookDonated,
+          });
         } else {
+          // find and update user tab when tab!=0
+          User.findOneAndUpdate(
+            { email: email },
+            { $set: { remainingTab: remainingTab } },
+            function (err, updated) {
+              if (!err) {
+                console.log("tab updated");
+              }
+            }
+          );
           res.render("index", {
             remainingTab: remainingTab,
             bookDonated: bookDonated,
@@ -157,8 +168,7 @@ app.get("/successLogin", function (req, res) {
     }
   });
 });
-// Handling request
-// this route only be called when user logged in
+// getting user info from client login
 app.post("/api", (req, res) => {
   id = req.body.id;
   email = req.body.email;

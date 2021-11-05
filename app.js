@@ -9,7 +9,7 @@ var fs = require("fs");
 // const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-const url = "mongodb://localhost:27017/userDB";
+const url = "mongodb://localhost:27017/bookDB";
 mongoose.connect(url);
 
 const dbName = "books";
@@ -104,13 +104,13 @@ app.get("/successLogin", function (req, res) {
         const user = new User({
           name: name,
           id: id,
-          remainingTab: 5,
+          remainingTab: 225,
           bookDonated: 0,
           email: email,
         });
         user.save();
         res.render("index", {
-          remainingTab: 5,
+          remainingTab: 225,
           bookDonated: 0,
         });
       } else {
@@ -122,7 +122,7 @@ app.get("/successLogin", function (req, res) {
         // find and update user tab and book
         if (remainingTab == 0) {
           // find and update user tab and book when tab=0
-          remainingTab = 5;
+          remainingTab = 225;
           bookDonated++;
           User.findOneAndUpdate(
             { email: email },

@@ -10,7 +10,7 @@ var fs = require("fs");
 const assert = require("assert");
 
 const url =
- 'mongodb://localhost:27017';
+ 'mongodb://localhost:27017/bookDB';
 mongoose.connect(url);
 
 const dbName = "books";

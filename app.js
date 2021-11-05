@@ -9,7 +9,8 @@ var fs = require("fs");
 // const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-const url = "mongodb://localhost:27017/bookDB";
+const url =
+  "mongodb+srv://gentleatif:a8226829730T@cluster0.o0zy1.mongodb.net/bookDB?retryWrites=true&w=majority";
 mongoose.connect(url);
 
 const dbName = "books";

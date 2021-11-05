@@ -10,7 +10,7 @@ var fs = require("fs");
 const assert = require("assert");
 
 const url =
-  "mongodb+srv://gentleatif:a8226829730T@cluster0.o0zy1.mongodb.net/bookDB?retryWrites=true&w=majority";
+ 'mongodb://localhost:27017';
 mongoose.connect(url);
 
 const dbName = "books";

@@ -9,9 +9,8 @@ var fs = require("fs");
 // const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 
-const url =
- 'mongodb://localhost:27017/bookDB';
-mongoose.connect(url);
+//  wirte mongodb url in the connect
+mongoose.connect(process.env.MONGO_URL);
 
 const dbName = "books";
 const app = express();

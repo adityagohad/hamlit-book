@@ -14,33 +14,33 @@
   <body>
     <script>
       function statusChangeCallback(response) {
-        console.log('statusChangeCallback')
-        console.log(response) // The current login status of the person.
-        if (response.status === 'connected') {
-          window.location.pathname = '/'
+        console.log("statusChangeCallback");
+        console.log(response); // The current login status of the person.
+        if (response.status === "connected") {
+          window.location.pathname = "/success";
         } else {
-          console.warn('Please login')
+          console.warn("Please login");
         }
       }
 
       function checkLoginState() {
         FB.getLoginStatus(function (response) {
-          statusChangeCallback(response)
-        })
+          statusChangeCallback(response);
+        });
       }
 
       window.fbAsyncInit = function () {
         FB.init({
-          appId: '849453379203719',
+          appId: "849453379203719",
           autoLogAppEvents: true,
           xfbml: true,
-          version: 'v12.0',
-        })
+          version: "v12.0",
+        });
 
         FB.getLoginStatus(function (response) {
-          checkLoginState(response)
-        })
-      }
+          checkLoginState(response);
+        });
+      };
     </script>
     <script
       async
@@ -85,14 +85,14 @@
     </div>
     <script>
       function renderButton() {
-        gapi.signin2.render('my-signin2', {
-          scope: 'profile email',
+        gapi.signin2.render("my-signin2", {
+          scope: "profile email",
           width: 230,
           height: 40,
           longtitle: true,
-          theme: 'light',
+          theme: "light",
           onsuccess: onSignIn,
-        })
+        });
       }
     </script>
 
@@ -104,10 +104,25 @@
 
     <script>
       function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile()
-        console.log('Sign in successful')
-        console.log('Redirecting')
-        window.location.pathname = '/'
+        var profile = googleUser.getBasicProfile();
+        console.log("Sign in successful");
+        console.log("Redirecting");
+        const data = {
+          email: profile.getEmail(),
+          name: profile.getName(),
+          id: profile.getId(),
+        };
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch("/api", options);
+        window.location.pathname = "/successLogin";
       }
     </script>
   </body>
